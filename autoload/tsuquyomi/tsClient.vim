@@ -98,8 +98,15 @@ function! s:startTssVim8()
     return 'existing'
   endif
   let l:cmd = substitute(tsuquyomi#config#tsscmd(), '\\', '\\\\', 'g').' '.tsuquyomi#config#tssargs()
+  let l:env = {}
+
+  if exists('g:tsuquyomi_tsserver_max_old_space_size')
+    let l:env['NODE_OPTIONS'] = '--max-old-space-size='.g:tsuquyomi_tsserver_max_old_space_size
+  endif
+
   try
     let s:tsq['job'] = job_start(l:cmd, {
+      \ 'env': l:env,
       \ 'out_cb': {ch, msg -> tsuquyomi#tsClient#handleMessage(ch, msg)},
       \ })
 

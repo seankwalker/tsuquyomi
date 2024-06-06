@@ -298,6 +298,15 @@ g:tsuquyomi_tsserver_path	(デフォルト値 `''`)
 g:tsuquyomi_nodejs_path		(デフォルト値 "node")
 		Node.js の実行パス.
 
+				*g:tsuquyomi_tsserver_max_old_space_size*
+g:tsuquyomi_tsserver_max_old_space_size		(デフォルト `''`)
+		`tsserver.js`を実行するNode.jsプロセスの最大オールドスペース
+		サイズを指定します。この変数が設定されている場合、Tsuquyomiは
+		その値を`NODE_OPTIONS`環境変数の`--max-old-space-size`引数とし
+		て使用します。例えば、
+>
+		let g:tsuquyomi_tsserver_max_old_space_size = '4096'
+<
 						*g:tsuquyomi_definition_split*
 g:tsuquyomi_definition_split	(デフォルト値 0)
 		|:TsuquyomiDefinition| にて別ファイル定義への遷移時,

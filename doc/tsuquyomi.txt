@@ -294,6 +294,15 @@ g:tsuquyomi_tsserver_path	(default `''`)
 g:tsuquyomi_nodejs_path		(default "node")
 		A path to Node.js.
 
+				*g:tsuquyomi_tsserver_max_old_space_size*
+g:tsuquyomi_tsserver_max_old_space_size		(default `''`)
+		Specifies the maximum old space size for the Node.js process
+		running `tsserver.js`. If this variable is set, Tsuquyomi
+		will use its value as the argument for `--max-old-space-size`
+		in the `NODE_OPTIONS` environment variable. For example,
+>
+		let g:tsuquyomi_tsserver_max_old_space_size = '4096'
+<
 						*g:tsuquyomi_definition_split*
 g:tsuquyomi_definition_split	(default 0)
 		A way to open a target file when navigating with
